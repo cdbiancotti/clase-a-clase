@@ -93,14 +93,14 @@ b = 'Otra cadena'
 # ejercicio - Desafío de Salida ( 10 min )
 # Formatea los siguientes valores para mostrar el resultado indicado:
 
-texto = 'Hola Mundo'
+# texto = 'Hola Mundo'
 # 1. "Hola Mundo" → Alineado a la izquierda en 30 caracteres
-print(f'{texto:<30}')
+# print(f'{texto:<30}')
 # 2. "Hola Mundo" → Truncamiento en el sexto carácter (índice 5)
-print('{:.5}'.format('Hola Mundo'))
+# print('{:.5}'.format('Hola Mundo'))
 # 3. "Hola Mundo" → Alineamiento al centro en 10 caracteres con truncamiento en el tercer carácter (índice 2)
-print('{:^10.2}'.format(texto))
+# print('{:^10.2}'.format(texto))
 # 4. 231875 → Formateo a hexadecimal en minúsculas
-print('{0:x}'.format(231875))
+# print('{0:x}'.format(231875))
 # 5. 7887 → Formateo a binario
-print('{numero:b}'.format(numero=7887))
+# print('{numero:b}'.format(numero=7887))
