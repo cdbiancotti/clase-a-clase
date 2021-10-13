@@ -96,14 +96,14 @@
 
 
 
-def par_o_impar(numero):
-    if type(numero).__name__ != 'int':
-        if not numero.isdigit():
-            return 'Debe ingresar un valor entero'
-        numero = int(numero)
-    if numero % 2 == 0:
-        return 'par'
-    else:
-        return 'impar'
+# def par_o_impar(numero):
+#     if type(numero).__name__ != 'int':
+#         if not numero.isdigit():
+#             return 'Debe ingresar un valor entero'
+#         numero = int(numero)
+#     if numero % 2 == 0:
+#         return 'par'
+#     else:
+#         return 'impar'
 
-print(par_o_impar('asdasd'))
+# print(par_o_impar('asdasd'))

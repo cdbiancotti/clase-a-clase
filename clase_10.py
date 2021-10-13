@@ -125,15 +125,15 @@
 # recursividad
 # con retorno
 
-# def factorial(numero):
-#     print('Valor inicial ->', numero)
-#     if numero > 1:
-#         numero = numero * factorial(numero -1)
-#     print('Valor final ->', numero)
-#     return numero
+def factorial(numero):
+    # print('Valor inicial ->', numero)
+    if numero > 1:
+        numero = numero * factorial(numero -1)
+    # print('Valor final ->', numero)
+    return numero
 
-# valor_final = factorial(3)
-# print(valor_final)
+valor_final = factorial(3)
+print(valor_final)
 
 # sin retorno
 # def cuenta_regresiva(numero):
