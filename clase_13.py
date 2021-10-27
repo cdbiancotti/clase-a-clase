@@ -126,58 +126,58 @@
 
 # Magic Methods
 
-class Animal:
-    cant_ojos = 2
-    cantidad_de_animales = 0
-    animales = []
+# class Animal:
+#     cant_ojos = 2
+#     cantidad_de_animales = 0
+#     animales = []
 
-    # __init__
-    def __init__(self, color='rojo'):
-        self.color = color
-        Animal.cantidad_de_animales += 1
-        Animal.animales.append(self)
+#     # __init__
+#     def __init__(self, color='rojo'):
+#         self.color = color
+#         Animal.cantidad_de_animales += 1
+#         Animal.animales.append(self)
 
-    def saltar(self):
-        print('el animal de color', self.color, 'salto')
+#     def saltar(self):
+#         print('el animal de color', self.color, 'salto')
 
-    def caminar(self):
-        pasos = input('Cant de pasos dados por el animal: ')
-        print('el animal de color', self.color, 'dio', pasos, 'pasos')
+#     def caminar(self):
+#         pasos = input('Cant de pasos dados por el animal: ')
+#         print('el animal de color', self.color, 'dio', pasos, 'pasos')
     
-    def cambiar_nombre(self, nuevo_nombre):
-        self.nombre = nuevo_nombre
+#     def cambiar_nombre(self, nuevo_nombre):
+#         self.nombre = nuevo_nombre
 
-    # __str__
-    def __str__(self):
-        return f'Este es un animal de color {self.color}'
+#     # __str__
+#     def __str__(self):
+#         return f'Este es un animal de color {self.color}'
 
-    # __len__
-    def __len__(self):
-        return self.cantidad_de_animales
+#     # __len__
+#     def __len__(self):
+#         return self.cantidad_de_animales
 
-    # __getitem__
-    def __getitem__(self, indice):
-        if len(self) >= indice:
-            return self.animales[indice]
-        else:
-            return 'Faltan animales'
+#     # __getitem__
+#     def __getitem__(self, indice):
+#         if len(self) >= indice:
+#             return self.animales[indice]
+#         else:
+#             return 'Faltan animales'
 
-    # __setitem__
-    def __setitem__(self, indice, valor):
-        self.animales[indice] = valor
+#     # __setitem__
+#     def __setitem__(self, indice, valor):
+#         self.animales[indice] = valor
 
-    # __iter__
-    def __iter__(self):
-        for animal in self.animales:
-            yield animal
+#     # __iter__
+#     def __iter__(self):
+#         for animal in self.animales:
+#             yield animal
 
 
-animal1 = Animal()
-animal2 = Animal('verde')
+# animal1 = Animal()
+# animal2 = Animal('verde')
 # print(len(animal1))
 # print(len(animal2))
 # print(animal1[1])
-animal1[1] = Animal('marron')
+# animal1[1] = Animal('marron')
 # print(animal1[1])
 
 # for animal in animal1:
@@ -203,28 +203,28 @@ animal1[1] = Animal('marron')
 
 # Encapsulamiento
 
-class Persona:
-    __privado = 23
+# class Persona:
+#     __privado = 23
 
-    def __init__(self, mascota):
-        self.__mascota = mascota
+#     def __init__(self, mascota):
+#         self.__mascota = mascota
 
-    def __funcion_privada(self):
-        ...
+#     def __funcion_privada(self):
+#         ...
 
-    def get_mascota(self):
-        return self.__mascota
+#     def get_mascota(self):
+#         return self.__mascota
 
-    def set_mascota(self, mascota):
-        self.__mascota = mascota
+#     def set_mascota(self, mascota):
+#         self.__mascota = mascota
 
-    def uso_la_funcion_privada(self):
-        self.__funcion_privada()
+#     def uso_la_funcion_privada(self):
+#         self.__funcion_privada()
 
-per1 = Persona(mascota=animal1)
+# per1 = Persona(mascota=animal1)
 # print(per1.__mascota.color)
 # print(per1.__funcion_privada())
-print(per1.__privado)
+# print(per1.__privado)
 
 
 # Ejercicio Olimpiadas ( 15 min )
@@ -232,3 +232,46 @@ print(per1.__privado)
 # peso, teléfono e índice de masa corporal (descripción) .
 # Decidir qué atributos deben ser públicos y cuáles privados.
 # Crear los métodos get y set que crea necesarios. 
+
+# class Atleta:
+
+#     def __init__(self, nombre, apellido, altura, peso, telefono):
+#         # publico
+#         self.nombre = nombre
+#         # protegido
+#         self._apellido = apellido
+#         # privado
+#         self.__telefono = telefono
+#         self.__guardar_datos(altura, peso)
+
+#     def __guardar_datos(self, altura, peso):
+#         self.__altura = altura
+#         self.__peso = peso
+#         self.__calcular_imc()
+
+#     def __calcular_imc(self):
+#         self.__imc = self.__peso / self.__altura**2
+
+#     def get_imc_del_atleta(self):
+#         if 1 > 0:
+#             return 'no quiero saber nada'
+#         return self.__imc
+
+#     def set_telefono(self, nuevo_telefono):
+#         if self.__telefono != nuevo_telefono:
+#             self.__telefono = nuevo_telefono
+#         else:
+#             return 'ya me tenes guardado'
+
+#     # publico
+#     def gritar(self):
+#         return 'AAAAAAAAaaaaaaaaaaaa!!!!!'
+
+# atleta1 = Atleta('Pepe', 'Mujica', 1.60, 70, '12312312')
+# print(atleta1.nombre)
+# print(atleta1.gritar())
+# print(atleta1._apellido)
+# # print(atleta1.__calcular_imc())
+# # print(atleta1._Atleta__telefono)
+# print(atleta1.get_imc_del_atleta())
+# print(atleta1.set_telefono('123123122'))
