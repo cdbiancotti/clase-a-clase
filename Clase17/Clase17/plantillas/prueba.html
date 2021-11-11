@@ -8,5 +8,35 @@
 </head>
 <body>
     Probando las plantillas!
+
+    <br>
+
+    {{nombre}} {{apellido}}
+
+    <br>
+    
+    {{mi_dict.key}} 
+
+    <br>
+
+    {{lista}}
+
+    <br>
+
+    {% for valor in lista %}
+    {% comment %} problema del if {% endcomment %}
+        {% if valor < 3%}
+            {{valor}}
+            hola
+            <br>
+        {% elif valor == 3%}
+            paso por el elif
+            <br>
+        {% else %}
+            paso por el else
+            <br>
+        {% endif %}
+    {% endfor %}
+
 </body>
 </html>
