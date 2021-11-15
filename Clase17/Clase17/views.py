@@ -33,7 +33,7 @@ def probandoTemplate(self):
     
     mis_datos = {'nombre': nombre, 'apellido': apellido, 'mi_dict': mi_dict, 'lista': [1,2,3,4,5,6]}
     
-    # # otra forma de render - otra forma de manejar archivo
+    # # # otra forma de render - otra forma de manejar archivo
     # miHtml = open("C:\Source Code\Clase17\Clase17\plantillas\prueba.html")
 
     # plantilla = Template(miHtml.read()) #Se carga en memoria nuestro documento, template1   
