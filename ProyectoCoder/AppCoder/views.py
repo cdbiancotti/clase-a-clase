@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 from .models import Curso
 
 # Create your views here.
 
 def crear_curso(request):
-    curso = Curso(nombre='After nuevo', camada=25)
+    curso = Curso(nombre='After viejo', camada=25)
     curso.save()
     
     return HttpResponse(f'{curso.nombre} {curso.camada}')
@@ -20,4 +21,11 @@ def ver_curso(request):
     for curso in cursos:
         texto += f'Curso: {curso.nombre} <br>'
     
-    return HttpResponse(f'{curso1}')
+    return HttpResponse(f'{texto}')
+
+
+def prueba_template(request):
+    # template = loader.get_template('Appcoder/index.html')
+    # documento = template.render({})
+    # return HttpResponse(documento)
+    return render(request, 'Appcoder/index.html', {})
