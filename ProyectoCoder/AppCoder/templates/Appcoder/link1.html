@@ -1,0 +1,25 @@
+{% extends 'Appcoder/index.html' %}
+{% load static %}
+
+{% block 'HeadRaiz' %}
+    <title>Soy la pestañita</title>
+{% endblock 'HeadRaiz' %}
+
+{% block 'Section' %}
+    <section class="link1">
+        Bienvenidos a el template LINK1!
+        <br>
+        {{suma}}
+    </section>
+
+    {% block 'BloqueLink1' %}
+
+    {% endblock 'BloqueLink1' %}
+
+{% endblock 'Section' %}
+
+{% block 'Pepe' %}
+    <section class="link1">
+        Bienvenidos a el template LINK1!
+    </section>
+{% endblock 'Pepe' %}

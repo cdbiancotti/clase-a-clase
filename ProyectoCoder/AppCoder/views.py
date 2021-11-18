@@ -24,8 +24,18 @@ def ver_curso(request):
     return HttpResponse(f'{texto}')
 
 
-def prueba_template(request):
-    # template = loader.get_template('Appcoder/index.html')
-    # documento = template.render({})
-    # return HttpResponse(documento)
+def index(request):
     return render(request, 'Appcoder/index.html', {})
+
+def link1(request):
+    suma = 15 + 14
+    return render(request, 'Appcoder/link1.html', {'suma': suma})
+
+def link2(request):
+    return render(request, 'Appcoder/link2.html', {})
+
+def link3(request):
+    return render(request, 'Appcoder/link3.html', {})
+
+def link4(request):
+    return render(request, 'Appcoder/link4.html', {})
