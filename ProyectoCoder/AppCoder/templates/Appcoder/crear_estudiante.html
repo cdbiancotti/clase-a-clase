@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href={% url 'ver' %}>Ir a listado de estudiantes</a>
+    {% if estudiante %}
+        <p>
+            {{estudiante.nombre}} {{estudiante.apellido}}
+        </p>
+    {% endif %}
+    <form action={% url 'crear' idestudiante %} method="POST">
+        {% csrf_token %}
+        
+        {% comment%}
+        Formulario basado en forms
+        {% endcomment %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        {% comment%}
+        Formulario propio
+        {% endcomment %}
+        {% comment %} <p>Nombre: 
+            <input type="text" name="nombre">
+        </p>
+        <p>Apellido: 
+            <input type="text" name="apellido">
+        </p>
+        <p> Email: 
+            <input type="email" name="email">
+        </p>
+        {% endcomment %}
+        <input type="submit" placeholder="Enviar"> 
+    </form>
+</body>
+</html>

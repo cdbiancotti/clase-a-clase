@@ -1,0 +1,3 @@
+- inicializar pipenv
+- levantar con runserver la pagina
+- pagina principal tiene links a formulario de datos y formulario de agregar datos
