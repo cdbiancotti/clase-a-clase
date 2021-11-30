@@ -1,0 +1,21 @@
+{% extends 'Appcoder/index.html' %}
+{% load static %}
+
+{% block 'HeadRaiz' %}
+    <title>Register</title>
+{% endblock 'HeadRaiz' %}
+
+{% block 'Section' %}
+    {% if error %}
+        <h3>{{mensaje}}</h3>
+    {% endif %}
+    
+    <form action='' method="POST">
+        {% csrf_token %}
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" placeholder="Register">
+    </form>
+
+{% endblock 'Section' %}

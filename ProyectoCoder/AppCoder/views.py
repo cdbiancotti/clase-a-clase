@@ -4,7 +4,15 @@ from django.template import loader
 
 from django.views.generic import CreateView, DetailView, DeleteView, ListView
 
-from .forms import FormularioEstudiante
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth import login, authenticate
+
+from .forms import FormularioEstudiante, RegistroUsuarioForm
 
 from .models import Curso, Estudiante
 
@@ -88,6 +96,7 @@ from .models import Curso, Estudiante
 def index(request):
     return render(request, 'Appcoder/index.html', {})
 
+@login_required
 def link1(request):
     suma = 15 + 14
     return render(request, 'Appcoder/link1.html', {'suma': suma})
@@ -115,6 +124,51 @@ class EstudianteDetailView(DetailView):
     model = Estudiante
     template_name = "detalle_estudiante.html"
 
-class EstudianteListView(ListView):
+class EstudianteListView(LoginRequiredMixin, ListView):
     model = Estudiante
-    template_name = "ver_estudiante.html"
+    template_name = "Appcoder/ver_estudiante.html"
+
+
+def login_request(request):
+    
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        
+        if form.is_valid():
+            
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data['password']
+            
+            user = authenticate(username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                return render(request, 'Appcoder/index.html', {'tiene_mensaje': True, 'mensaje': 'Te logueaste con exito!'})
+            else:
+                return render(request, 'Appcoder/login.html', {'form': form, 'mensaje': 'Error, credenciales incorrectas.', 'error': True})
+        
+        else:
+            return render(request, 'Appcoder/login.html', {'form': form, 'mensaje': 'Error, Los datos pasados tienen un mal formato.', 'error': True})
+            
+    
+    form = AuthenticationForm
+    
+    return render(request, 'Appcoder/login.html', {'form': form, 'mensaje': '', 'error': False})
+
+
+def register_request(request):
+    
+    if request.method == 'POST':
+        form = RegistroUsuarioForm(request.POST)
+        
+        if form.is_valid():
+            
+            username = form.cleaned_data.get('username')
+            
+            form.save()
+            
+            return render(request, 'Appcoder/index.html', {'tiene_mensaje': True, 'mensaje': f'Se creo el {username}' })
+    
+    form = RegistroUsuarioForm()
+    
+    return render(request, 'Appcoder/register.html', {'form': form, 'mensaje': '', 'error': False})

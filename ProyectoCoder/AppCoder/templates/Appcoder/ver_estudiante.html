@@ -6,25 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <a href={% url 'crear' 0 %}>Crear nuevo estudiante</a>
-    <form action={% url 'ver' %} method="GET">
-        {% csrf_token %}
-        <p>Apellido: 
-            <input type='text' name="apellido">
-        </p>
-        <input type="submit" placeholder="Enviar"> 
-    </form>
-    {% if estudiantes %}
-        {% for estudiante in estudiantes %}
-            <p>
-                {{estudiante}}<br> <a href={% url 'crear' estudiante.id %}>Editar</a><br><a href={% url 'eliminar' estudiante.id %}>Eliminar</a>
-            </p>
+    <ul>
+        {% for estudiante in object_list %}
+
+            <li>
+                <p>NOMBRE: {{ estudiante.nombre }} </p>
+            </li>
+
         {% endfor %}
-    {% else %}
-        <p>
-            No hay estudiantes guardados.
-        </p>
-    {% endif %}
+    </ul>
 </body>
 </html>

@@ -1,7 +1,10 @@
 
+from django import template
 from django.urls import path
 
-from AppCoder.views import index, link1, link2, link3, link4
+from AppCoder.views import index, link1, link2, link3, link4, login_request, register_request
+
+from django.contrib.auth.views import LogoutView
 
 from . import views
 
@@ -18,4 +21,7 @@ urlpatterns = [
     path('crear/', views.EstudianteCreateView.as_view(), name='Create'),
     path('eliminar/<int:id>', views.EstudianteDeleteView.as_view(), name='Delete'),
     path('detalle/<int:id>', views.EstudianteDetailView.as_view(), name='Detail'),
+    path('login/', login_request, name='Login'),
+    path('register/', register_request, name='Register'),
+    path('logout/', LogoutView.as_view(template_name='Appcoder/logout.html'), name='Logout'),
 ]
