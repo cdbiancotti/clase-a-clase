@@ -2,7 +2,7 @@
 from django import template
 from django.urls import path
 
-from AppCoder.views import index, link1, link2, link3, link4, login_request, register_request
+from AppCoder.views import index, link1, link2, link3, link4, login_request, register_request, editar_user, editar_avatar
 
 from django.contrib.auth.views import LogoutView
 
@@ -23,5 +23,7 @@ urlpatterns = [
     path('detalle/<int:id>', views.EstudianteDetailView.as_view(), name='Detail'),
     path('login/', login_request, name='Login'),
     path('register/', register_request, name='Register'),
+    path('editar/', editar_user, name='Editar'),
+    path('editar-avatar/', editar_avatar, name='Editar_Avatar'),
     path('logout/', LogoutView.as_view(template_name='Appcoder/logout.html'), name='Logout'),
 ]

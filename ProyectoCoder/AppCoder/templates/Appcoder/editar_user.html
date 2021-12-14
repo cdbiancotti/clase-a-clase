@@ -1,0 +1,19 @@
+{% extends 'Appcoder/index.html' %}
+{% load static %}
+
+{% block 'HeadRaiz' %}
+    <title>Editar User</title>
+{% endblock 'HeadRaiz' %}
+
+{% block 'Section' %}
+    <h3>Editar User</h3>
+    
+    <form action='' method="POST">
+        {% csrf_token %}
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" placeholder="Enviar">
+    </form>
+
+{% endblock 'Section' %}

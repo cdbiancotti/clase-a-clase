@@ -26,14 +26,21 @@
                 {% block 'Anclas' %}
                 {% endblock 'Anclas' %}
                 <a class="navbar-brand" href="{% url 'link1' %}">Link 1</a>
-                <a class="navbar-brand" href="{% url 'link2' %}">Link 2</a>
-                <a class="navbar-brand" href="{% url 'link3' %}">Link 3</a>
-                <a class="navbar-brand" href="{% url 'link4' %}">Link 4</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="{% url 'Editar_Avatar' %}">Editar Avatar</a>
+                <a class="navbar-brand" href="{% url 'Editar' %}">Editar</a>
+                {% if not request.user.is_authenticated %}
+                    <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
+                {% else %}
+                    <p> 
+                        Bienvenido {{request.user.email}}
+                        <a class="navbar-brand" href="{% url 'Logout' %}">Logout</a>
+                    </p>
+                {% endif %}
             </div>
         </nav>
         {% if tiene_mensaje %}
             <h3>{{mensaje}}</h3>
+            <img src={{url_avatar}} height='50'/>
         {% endif %}
         {% block 'Section' %}
         
